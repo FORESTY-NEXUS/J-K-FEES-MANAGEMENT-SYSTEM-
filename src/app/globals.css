@@ -1,26 +1,213 @@
 @import "tailwindcss";
 
+/* ── Refined Design Tokens: Darker, Muted, Desaturated Palette with Strong Contrast ─
+   - Base background: Clean neutral slate-tinted canvas (#f8f9fb)
+   - Surfaces: Pure white card bodies (#ffffff) and subtle raised elements (#f1f5f9)
+   - Hairline borders: Sharp, clear structural borders (#e2e8f0 and #cbd5e1)
+   - Text: Dark slate-900 (#0f172a), slate-700 (#334155), slate-500 (#64748b)
+   - Accent: Dark desaturated slate-navy (#1e3a5f)
+   - Status tones: Deep, desaturated, high-contrast forest, bronze, and crimson
+   ──────────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --raised: #f1f5f9;
+  --hairline: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* Typography roles — high contrast against light surfaces */
+  --text-primary: #0f172a;   /* Slate 900 */
+  --text-secondary: #334155; /* Slate 700 */
+  --text-muted: #64748b;     /* Slate 500 */
+
+  /* Darker, desaturated accent */
+  --accent: #1e3a5f;
+  --accent-hover: #142842;
+  --accent-subtle: #f0f4f8;
+
+  /* Semantic status colors (darker, desaturated, high-contrast) */
+  --positive: #166534;        /* Dark Forest Green */
+  --positive-bg: #f0fdf4;
+  --positive-border: #bbf7d0;
+
+  --warning: #854d0e;         /* Dark Bronze Amber */
+  --warning-bg: #fefce8;
+  --warning-border: #fde68a;
+
+  --danger: #991b1b;          /* Dark Desaturated Crimson */
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+
+  /* Squircle continuous curvature radii */
+  --squircle-xs: 6px;
+  --squircle-sm: 8px;
+  --squircle-md: 10px;
+  --squircle-lg: 14px;
+  --squircle-xl: 18px;
+  --squircle-2xl: 22px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-surface: #ffffff;
+  --color-raised: #f1f5f9;
+  --color-app-bg: #f8f9fb;
+  --color-hairline: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-accent: #1e3a5f;
+  --color-accent-hover: #142842;
+  --color-accent-subtle: #f0f4f8;
+  --color-positive: #166534;
+  --color-warning: #854d0e;
+  --color-danger: #991b1b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Squircle Superellipse Geometry ──────────────────────────────────────────
+   Continuous G2 curvature smoothing (Apple squircle geometry)
+   Applies smooth, natural transitions from straight edges to corners on cards,
+   buttons, containers, inputs, and dialogs.
+   ──────────────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+}
+
+[class*="rounded"],
+button,
+input,
+select,
+textarea,
+kbd,
+table {
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+}
+
+/* Squircle Utility Classes */
+.squircle-card {
+  border-radius: var(--squircle-lg);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+  border: 1px solid var(--hairline);
+  background-color: var(--surface);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.squircle-btn {
+  border-radius: var(--squircle-md);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+}
+
+.squircle-input {
+  border-radius: var(--squircle-md);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+}
+
+.squircle-badge {
+  border-radius: var(--squircle-xs);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+}
+
+.squircle-modal {
+  border-radius: var(--squircle-2xl);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+}
+
+/* ── High-Contrast Desaturated Status Badges ──────────────────────────────── */
+.badge-paid {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #166534;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--squircle-xs);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+  padding: 0.125rem 0.5rem;
+  font-size: 11px;
+}
+
+.badge-pending {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #854d0e;
+  background-color: #fefce8;
+  border: 1px solid #fde68a;
+  border-radius: var(--squircle-xs);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+  padding: 0.125rem 0.5rem;
+  font-size: 11px;
+}
+
+.badge-overdue {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #991b1b;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--squircle-xs);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+  padding: 0.125rem 0.5rem;
+  font-size: 11px;
+}
+
+.badge-neutral {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  color: #334155;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--squircle-xs);
+  -webkit-corner-smoothing: 100%;
+  corner-smoothing: 100%;
+  padding: 0.125rem 0.5rem;
+  font-size: 11px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0;
+}
+
+/* Tabular numerals for financial figures */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Print styling for challans and receipts */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  .print-page-break { page-break-after: always; }
+  @page { margin: 10mm; }
 }
