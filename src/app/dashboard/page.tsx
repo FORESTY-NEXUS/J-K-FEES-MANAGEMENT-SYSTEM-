@@ -139,31 +139,26 @@ export default function DashboardPage() {
       {/* ── KPI Stat Cards with Icon Badges & Sparklines ────────────────────── */}
       <div className="gsap-fade-in grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
         {/* Total Revenue */}
-        <div className="squircle-card p-4 relative overflow-hidden flex flex-col justify-between">
+        <div className="squircle-card p-4 !bg-black/90 relative overflow-hidden flex flex-col justify-between">
           <div className="flex items-center gap-2">
             <div className="h-7 w-7 rounded-full bg-[#f0fdf4] flex items-center justify-center text-[#166534] shrink-0">
-              <Wallet className="h-3.5 w-3.5" strokeWidth={1.5} />
+              <Wallet className="h-3.5 w-3.5" strokeWidth={2.5} />
             </div>
-            <span className="text-[12px] font-medium text-[#64748b]">Total Revenue</span>
+            <span className="text-[12px] font-medium text-[#fdfefe]">Total Revenue</span>
           </div>
           <div className="my-2">
-            <div className="text-[22px] font-semibold tabular-nums tracking-[-0.02em] text-[#0f172a]">
+            <div className="text-[22px] font-semibold tabular-nums tracking-[-0.02em] text-[#efeff0]">
               {formatCurrency(kpis.totalInvoiced)}
             </div>
           </div>
           <div className="flex items-center justify-between text-[11px]">
-            <div className="flex items-center gap-1 text-[#166534]">
+            <div className="flex items-center gap-1 text-[#1ae768]">
               <ArrowUpRight className="h-3 w-3" strokeWidth={2} />
               <span className="font-semibold">+12.5%</span>
-              <span className="text-[#64748b]">vs last year</span>
+              <span className="text-[#dfe1e3]">vs last year</span>
             </div>
-            <div className="h-6 w-16">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={[{v: 30}, {v: 35}, {v: 32}, {v: 42}]} margin={{top:0, right:0, left:0, bottom:0}}>
-                  <Area type="monotone" dataKey="v" stroke="#166534" fill="#f0fdf4" strokeWidth={1.5} />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
+
+           
           </div>
         </div>
 
@@ -186,13 +181,7 @@ export default function DashboardPage() {
               <span className="font-semibold">+10.8%</span>
               <span className="text-[#64748b]">vs last year</span>
             </div>
-            <div className="h-6 w-16">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={[{v: 25}, {v: 28}, {v: 33}, {v: 38}]} margin={{top:0, right:0, left:0, bottom:0}}>
-                  <Area type="monotone" dataKey="v" stroke="#166534" fill="#f0fdf4" strokeWidth={1.5} />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
+            
           </div>
         </div>
 
@@ -216,11 +205,7 @@ export default function DashboardPage() {
               <span className="text-[#64748b]">vs last year</span>
             </div>
             <div className="h-6 w-16">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={[{v: 20}, {v: 24}, {v: 22}, {v: 29}]} margin={{top:0, right:0, left:0, bottom:0}}>
-                  <Area type="monotone" dataKey="v" stroke="#854d0e" fill="#fefce8" strokeWidth={1.5} />
-                </AreaChart>
-              </ResponsiveContainer>
+            
             </div>
           </div>
         </div>
@@ -240,17 +225,11 @@ export default function DashboardPage() {
           </div>
           <div className="flex items-center justify-between text-[11px]">
             <div className="flex items-center gap-1 text-[#991b1b]">
-              <ArrowUpRight className="h-3 w-3" strokeWidth={2} />
+              <ArrowUpRight className="h-5 w-5" strokeWidth={2} />
               <span className="font-semibold">+1.9%</span>
               <span className="text-[#64748b]">vs last year</span>
             </div>
-            <div className="h-6 w-16">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={[{v: 15}, {v: 18}, {v: 16}, {v: 19}]} margin={{top:0, right:0, left:0, bottom:0}}>
-                  <Area type="monotone" dataKey="v" stroke="#991b1b" fill="#fef2f2" strokeWidth={1.5} />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -396,7 +375,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Banner & Metric Cards */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4  squircle-card p-5">
           <div className="squircle-card p-4 bg-gradient-to-r from-[#f0fdf4] to-[#dcfce7] border border-[#bbf7d0] flex items-center justify-between">
             <div className="text-[12px] text-[#166534]">
               <span className="font-semibold">150%+ revenue</span> compared to last month.<br />

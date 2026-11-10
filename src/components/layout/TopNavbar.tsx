@@ -41,7 +41,7 @@ export function TopNavbar({ collapsed, onOpenMobile }: TopNavbarProps) {
           Unslop pass 1: h-14 = 56px (tokens: 56–64) ✓
           Unslop pass 9: transition-[padding-left] not transition-all */}
       <header
-        className={`sticky top-0 z-30 flex h-14 w-full items-center justify-between border-b border-[#e2e8f0] bg-white pl-4 pr-6 lg:pr-8 transition-[padding-left] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`sticky top-0 z-30 flex h-14 w-full items-center justify-between border-b border-black/90 bg-black/90 pl-4 pr-6 lg:pr-8 transition-[padding-left] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           collapsed ? 'lg:pl-[96px]' : 'lg:pl-[280px]'
         }`}
       >
@@ -100,7 +100,7 @@ export function TopNavbar({ collapsed, onOpenMobile }: TopNavbarProps) {
           <div className="relative">
             <button
               onClick={() => setNotificationsOpen(prev => !prev)}
-              className="relative flex h-8 w-8 items-center justify-center squircle-btn text-[#64748b] hover:bg-[#f1f5f9] hover:text-[#0f172a] transition-colors duration-150"
+              className="relative flex h-8 w-8 items-center justify-center squircle-btn text-[#98a9c1] hover:bg-[#f1f5f9] hover:text-[#0f172a] transition-colors duration-150"
               title="Recent activity"
             >
               <Bell className="h-4 w-4" strokeWidth={1.5} />
@@ -117,7 +117,7 @@ export function TopNavbar({ collapsed, onOpenMobile }: TopNavbarProps) {
                   className="absolute right-0 mt-2 z-50 w-80 sm:w-96 squircle-card p-3 text-left"
                   style={{ boxShadow: '0 8px 24px rgba(15,23,42,0.08)' }}
                 >
-                  <div className="flex items-center justify-between border-b border-[#e2e8f0] pb-2 mb-3">
+                  <div className="flex items-center justify-between border-b border-[#2b5184] pb-2 mb-3">
                     <span className="text-[13px] font-semibold text-[#0f172a]">Recent activity</span>
                     <Link
                       href="/audit-logs"
@@ -149,8 +149,8 @@ export function TopNavbar({ collapsed, onOpenMobile }: TopNavbarProps) {
               RM
             </div>
             <div className="hidden xl:flex flex-col text-left">
-              <span className="text-[12px] font-semibold text-[#0f172a] leading-tight">M. Rashid Minhas</span>
-              <span className="text-[11px] text-[#64748b] leading-tight">Chief accountant</span>
+              <span className="text-[12px] font-semibold text-[#feffff] leading-tight">M. Rashid Minhas</span>
+              <span className="text-[11px] text-[#b9bcc0] leading-tight">Chief accountant</span>
             </div>
           </div>
         </div>
