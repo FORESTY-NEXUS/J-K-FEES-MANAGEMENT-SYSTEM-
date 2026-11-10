@@ -116,7 +116,7 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
           Unslop pass 9 (Motion): transition-[width,transform] not transition-all */}
       <aside
         className={cn(
-          'fixed top-0 bottom-0 left-0 z-50 flex flex-col border-r border-[#e2e8f0] bg-white',
+          'fixed top-0 bottom-0 left-0 z-50 flex flex-col border-r border-[#e2e8f0] bg-black/5 ',
           'transition-[width,transform] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]',
           collapsed ? 'w-[72px]' : 'w-64',
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
@@ -126,9 +126,12 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
         <div className="flex h-14 shrink-0 items-center justify-between border-b border-[#e2e8f0] px-4">
           <Link href="/dashboard" className="flex items-center gap-2.5 overflow-hidden">
             {/* Logo mark: squircle geometry */}
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center squircle-btn bg-[#1e3a5f] text-white">
-              <Building2 className="h-4 w-4" strokeWidth={1.5} />
-            </div>
+     <div className="flex h-8 w-8 shrink-0 items-center justify-center squircle-btn bg-[#1e3a5f] text-white">
+  <Building2
+    className="h-4 w-4"
+    strokeWidth={1.5}
+  />
+</div>
             {!collapsed && (
               <div className="flex flex-col truncate text-left">
                 <span className="truncate text-[13px] font-semibold text-[#0f172a] leading-tight">
@@ -156,7 +159,7 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
           {NAV_GROUPS.map((group, gi) => (
             <div key={group.title} className={gi > 0 ? 'mt-5' : ''}>
               {!collapsed && (
-                <div className="mb-1 px-2 pb-1 text-[11px] font-semibold text-[#64748b]">
+                <div className="mb-1 px-2 pb-1 text-[11px] font-semibold text-black ">
                   {group.title}
                 </div>
               )}
